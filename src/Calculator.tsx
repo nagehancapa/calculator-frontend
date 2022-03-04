@@ -1,6 +1,10 @@
 import { useState, Fragment } from "react";
 import { calculateExpression } from "./calculateExpression";
 import "./Calculator.css";
+import ExpressionHistory from "./components/ExpressionHistory";
+import { useSelector, useDispatch } from "react-redux";
+import { postExpression } from "./store/history/actions";
+import { selectUser } from "./store/user/selectors";
 
 const numberRows = [[7, 8, 9], [4, 5, 6], [1, 2, 3], [0]];
 const calculationOperators = ["+", "-", "×", "÷"];
@@ -10,10 +14,15 @@ const equal = "=";
 
 const Calculator = () => {
   const [value, setValue] = useState("");
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser);
 
   const calculate = () => {
     const results = calculateExpression(value);
     setValue(results);
+    if (user.token) {
+      dispatch(postExpression(value));
+    }
   };
 
   const clearValue = () => setValue("");
@@ -58,6 +67,7 @@ const Calculator = () => {
           ))}
         </div>
       </div>
+      <ExpressionHistory />
     </div>
   );
 };

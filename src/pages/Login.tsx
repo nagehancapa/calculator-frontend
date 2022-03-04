@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Form from "react-bootstrap/Form";
-import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
 import { login } from "../store/user/actions";
 import { selectToken } from "../store/user/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
-import { Col } from "react-bootstrap";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
@@ -31,39 +27,45 @@ export default function SignUp() {
   }
 
   return (
-    <Container>
-      <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
-        <h1 className="mt-5 mb-5">Login</h1>
-        <Form.Group controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control
+    <div>
+      <div className="input-box">
+        <h2>Login</h2>
+        <label>E-mail address</label>
+        <div>
+          <input
             value={email}
             onChange={(event) => setEmail(event.target.value)}
             type="email"
+            autoCapitalize="off"
+            autoCorrect="off"
+            spellCheck="false"
+            title="E-mail address"
             placeholder="Enter email"
+            id="email"
             required
           />
-        </Form.Group>
-
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
+        </div>
+        <label>Password</label>
+        <div className="input-box">
+          <input
             value={password}
             onChange={(event) => setPassword(event.target.value)}
             type="password"
             placeholder="Password"
+            title="Password"
+            id="pass"
             required
           />
-        </Form.Group>
-        <Form.Group className="mt-5">
-          <Button variant="primary" type="submit" onClick={submitForm}>
-            Log in
-          </Button>
-        </Form.Group>
+        </div>{" "}
         <Link to="/signup" style={{ textAlign: "center" }}>
           Click here to sign up
         </Link>
-      </Form>
-    </Container>
+      </div>
+      <div className="button-set">
+        <button id="send2" type="submit" onClick={submitForm}>
+          <span>Login</span>
+        </button>
+      </div>
+    </div>
   );
 }

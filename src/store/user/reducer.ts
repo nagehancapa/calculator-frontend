@@ -10,6 +10,7 @@ const initialState: UserState = {
   token: localStorage.getItem("token"),
   name: "",
   email: "",
+  id: 0,
 };
 
 export default function userReducer(state = initialState, action: UserAction) {
