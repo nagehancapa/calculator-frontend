@@ -8,9 +8,10 @@ import { selectUser } from "./store/user/selectors";
 
 const numberRows = [[7, 8, 9], [4, 5, 6], [1, 2, 3], [0]];
 const calculationOperators = ["+", "-", "×", "÷"];
-const otherSigns = ["↶", "(", ")", ","];
+const otherSigns = ["(", ")", ","];
 const clear = "C";
 const equal = "=";
+const back = "↶";
 
 const Calculator = () => {
   const [value, setValue] = useState("");
@@ -19,7 +20,7 @@ const Calculator = () => {
 
   const calculate = () => {
     const results = calculateExpression(value);
-    setValue(results);
+    setValue(results.toString());
     if (user.token) {
       dispatch(postExpression(value));
     }
@@ -60,6 +61,7 @@ const Calculator = () => {
           ))}
         </div>
         <div className="other-signs">
+          <button>{back}</button>
           {otherSigns.map((s) => (
             <button onClick={() => setValue(value.concat(s))} key={s}>
               {s.toString()}
