@@ -1,10 +1,19 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import React from "react";
 import Calculator from "./Calculator";
+import { Provider } from "react-redux";
+import { MemoryRouter } from "react-router-dom";
+import store from "./store";
 
 describe("Calculator", () => {
   it("shows numbers", () => {
-    render(<Calculator />);
+    render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <Calculator />
+        </MemoryRouter>
+      </Provider>
+    );
     const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
     numbers.forEach((n) => {
       expect(screen.getByText(n.toString())).toBeInTheDocument();
@@ -12,13 +21,25 @@ describe("Calculator", () => {
   });
 
   it("shows 4 rows", () => {
-    render(<Calculator />);
+    render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <Calculator />
+        </MemoryRouter>
+      </Provider>
+    );
     const numberRows = screen.getAllByRole("row");
     expect(numberRows).toHaveLength(4);
   });
 
   it("shows the calculation operators", () => {
-    render(<Calculator />);
+    render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <Calculator />
+        </MemoryRouter>
+      </Provider>
+    );
     const calculationOperators = ["+", "-", "×", "÷"];
     calculationOperators.forEach((operator) => {
       expect(screen.getByText(operator.toString())).toBeInTheDocument();
@@ -26,7 +47,13 @@ describe("Calculator", () => {
   });
 
   it("shows the back, parenthesis and equal signs", () => {
-    render(<Calculator />);
+    render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <Calculator />
+        </MemoryRouter>
+      </Provider>
+    );
     const otherSigns = ["↶", "(", ")", ","];
     otherSigns.forEach((sign) => {
       expect(screen.getByText(sign.toString())).toBeInTheDocument();
@@ -34,29 +61,59 @@ describe("Calculator", () => {
   });
 
   it("shows clear sign", () => {
-    render(<Calculator />);
+    render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <Calculator />
+        </MemoryRouter>
+      </Provider>
+    );
     const clear = "C";
     expect(screen.getByText(clear)).toBeInTheDocument();
   });
 
   it("shows equal sign", () => {
-    render(<Calculator />);
+    render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <Calculator />
+        </MemoryRouter>
+      </Provider>
+    );
     const equal = "=";
     expect(screen.getByText(equal)).toBeInTheDocument();
   });
 
   it("shows initial input as zero", () => {
-    render(<Calculator />);
+    render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <Calculator />
+        </MemoryRouter>
+      </Provider>
+    );
     expect(screen.getByPlaceholderText("0")).toBeInTheDocument();
   });
 
   it("initial input disabled when entered new number", () => {
-    render(<Calculator />);
+    render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <Calculator />
+        </MemoryRouter>
+      </Provider>
+    );
     expect(screen.getByPlaceholderText("0")).toBeDisabled();
   });
 
   it("displays users inputs", async () => {
-    render(<Calculator />);
+    render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <Calculator />
+        </MemoryRouter>
+      </Provider>
+    );
     const one = screen.getByText("1");
     const two = screen.getByText("2");
     const plus = screen.getByText("+");
@@ -69,7 +126,13 @@ describe("Calculator", () => {
   });
 
   it("displays users' multiple inputs", async () => {
-    render(<Calculator />);
+    render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <Calculator />
+        </MemoryRouter>
+      </Provider>
+    );
     const openParenthesis = screen.getByText("(");
     const zero = screen.getByText("0");
     const one = screen.getByText("1");
@@ -106,7 +169,13 @@ describe("Calculator", () => {
   });
 
   it("calculate based on users inputs", async () => {
-    render(<Calculator />);
+    render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <Calculator />
+        </MemoryRouter>
+      </Provider>
+    );
     const one = screen.getByText("1");
     const two = screen.getByText("2");
     const plus = screen.getByText("+");
@@ -120,7 +189,13 @@ describe("Calculator", () => {
   });
 
   it("calculate based on users' multiple inputs", async () => {
-    render(<Calculator />);
+    render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <Calculator />
+        </MemoryRouter>
+      </Provider>
+    );
     const openParenthesis = screen.getByText("(");
     const zero = screen.getByText("0");
     const one = screen.getByText("1");
@@ -158,7 +233,13 @@ describe("Calculator", () => {
   });
 
   it("can clear results", async () => {
-    render(<Calculator />);
+    render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <Calculator />
+        </MemoryRouter>
+      </Provider>
+    );
     const one = screen.getByText("1");
     const two = screen.getByText("2");
     const plus = screen.getByText("+");
