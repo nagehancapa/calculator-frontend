@@ -1,0 +1,62 @@
+.input-box > h2 {
+  color: #445464;
+  letter-spacing: -1.5px;
+  font-family: "Open Sans Bold", sans-serif;
+}
+
+.input-box {
+  margin: 0 auto;
+  padding: 0 1.6rem;
+  max-width: 80rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 0 1.6rem;
+  max-width: 80rem;
+}
+
+.form-info {
+  margin: 0 0 1.6rem;
+  font-style: italic;
+}
+
+.form-button {
+  background-color: #f4f6f8;
+  border: 1px solid #c9d5dc;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  float: none;
+  margin: 0;
+  color: #445464;
+  font-family: "Open Sans Bold", sans-serif;
+  padding: 9px 20px;
+  font: 14px "Open Sans", sans-serif;
+  line-height: 1.5;
+}
+
+.text-input {
+  border: thin solid gray;
+  height: 29px;
+  font-size: 1.2rem;
+  font-weight: 300;
+  padding: 1.2rem;
+  margin-bottom: 1.6rem;
+}
+
+.signup-link {
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+
+.label {
+  display: inline-block;
+  font: 16px "Open Sans", sans-serif;
+  font-weight: 600;
+  color: #445464;
+  user-select: none;
+}

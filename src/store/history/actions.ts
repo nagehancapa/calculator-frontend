@@ -32,7 +32,6 @@ export const fetchHistoryByUserId = (id: number): AppThunk => {
         },
       });
       dispatch(userHistoryFetched(response.data.history));
-      console.log(response.data.history);
     } catch (error) {
       console.log((error as Error).message);
     }

@@ -1,0 +1,38 @@
+.header {
+  background-color: #fff;
+  width: 100%;
+  padding: 20px 0 0;
+}
+
+.content-container {
+  position: relative;
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.fiyo-logo {
+  float: left;
+  width: 24%;
+  padding: 0 20px 0 0;
+}
+
+.header__content {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.2rem 0;
+}
+
+.login-button {
+  background: #00bcb4;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  display: inline-block;
+  font-size: 1.8rem;
+  font-weight: 300;
+  line-height: 1;
+  padding: 10px 18px 6px;
+  text-decoration: none;
+}

@@ -3,6 +3,7 @@ import { login } from "../store/user/actions";
 import { selectToken } from "../store/user/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
+import "./Login.css";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
@@ -27,10 +28,10 @@ export default function SignUp() {
   }
 
   return (
-    <div>
+    <form className="form">
       <div className="input-box">
         <h2>Login</h2>
-        <label>E-mail address</label>
+        <label className="label">E-mail address</label>
         <div>
           <input
             value={email}
@@ -43,9 +44,10 @@ export default function SignUp() {
             placeholder="Enter email"
             id="email"
             required
+            className="text-input"
           />
         </div>
-        <label>Password</label>
+        <label className="label">Password</label>
         <div className="input-box">
           <input
             value={password}
@@ -55,17 +57,18 @@ export default function SignUp() {
             title="Password"
             id="pass"
             required
+            className="text-input"
           />
         </div>{" "}
-        <Link to="/signup" style={{ textAlign: "center" }}>
+        <Link className="signup-link" to="/signup">
           Click here to sign up
         </Link>
       </div>
-      <div className="button-set">
-        <button id="send2" type="submit" onClick={submitForm}>
-          <span>Login</span>
+      <div>
+        <button className="form-button" type="submit" onClick={submitForm}>
+          Login
         </button>
       </div>
-    </div>
+    </form>
   );
 }

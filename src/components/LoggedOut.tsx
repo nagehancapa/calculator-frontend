@@ -1,7 +1,12 @@
 import { NavLink } from "react-router-dom";
+import "./Header.css";
 
 const LoggedIn = () => {
-  return <NavLink to="/login">Login</NavLink>;
+  return (
+    <NavLink className="login-button" to="/login">
+      Login
+    </NavLink>
+  );
 };
 
 export default LoggedIn;

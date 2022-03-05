@@ -5,6 +5,7 @@ import { selectHistory } from "../store/history/selectors";
 import { fetchHistoryByUserId } from "../store/history/actions";
 import { HistoryList } from "../store/history/types";
 import moment from "moment";
+import "./ExpressionHistory.css";
 
 const ExpressionHistory = () => {
   const user = useSelector(selectUser);
@@ -17,7 +18,7 @@ const ExpressionHistory = () => {
   }, [dispatch, id]);
 
   return (
-    <div>
+    <div className="history-content">
       {user.token && (
         <table>
           <thead>

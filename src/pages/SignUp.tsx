@@ -3,6 +3,7 @@ import { signUp } from "../store/user/actions";
 import { selectToken } from "../store/user/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
+import "./Login.css";
 
 export default function SignUp() {
   const [name, setName] = useState("");
@@ -27,10 +28,10 @@ export default function SignUp() {
   }
 
   return (
-    <div>
+    <form className="form">
       <div className="input-box">
         <h2>Signup</h2>
-        <label>Name</label>
+        <label className="label">Name</label>
         <div>
           <input
             value={name}
@@ -38,9 +39,10 @@ export default function SignUp() {
             type="text"
             placeholder="Enter name"
             required
+            className="text-input"
           />
         </div>
-        <label>Email address</label>
+        <label className="label">Email address</label>
         <div>
           <input
             value={email}
@@ -48,10 +50,13 @@ export default function SignUp() {
             type="email"
             placeholder="Enter email"
             required
+            className="text-input"
           />
         </div>
-        <p>We'll never share your email with anyone else.</p>
-        <label>Password</label>
+        <p className="form-info">
+          We'll never share your email with anyone else.
+        </p>
+        <label className="label">Password</label>
         <div>
           <input
             value={password}
@@ -59,15 +64,18 @@ export default function SignUp() {
             type="password"
             placeholder="Password"
             required
+            className="text-input"
           />
         </div>
+        <Link className="signup-link" to="/login">
+          Click here to log in
+        </Link>
       </div>
       <div>
-        <button type="submit" onClick={submitForm}>
-          <span>Signup</span>
+        <button className="form-button" type="submit" onClick={submitForm}>
+          Signup
         </button>
       </div>
-      <Link to="/login">Click here to log in</Link>
-    </div>
+    </form>
   );
 }

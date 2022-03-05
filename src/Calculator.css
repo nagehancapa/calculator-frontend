@@ -1,6 +1,8 @@
 .calculator > h1 {
-  color: var(--theme-color-dark-20);
+  color: #445464;
   text-transform: uppercase;
+  letter-spacing: -1.5px;
+  font-family: "Open Sans Bold", sans-serif;
 }
 
 .calculator input {
